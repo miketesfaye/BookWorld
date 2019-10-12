@@ -191,6 +191,18 @@
     <Compile Include="Migrations\201910122128287_PopulateMembershipType.Designer.cs">
       <DependentUpon>201910122128287_PopulateMembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910122137099_ApplyAnnotationsToMembersName.cs" />
+    <Compile Include="Migrations\201910122137099_ApplyAnnotationsToMembersName.Designer.cs">
+      <DependentUpon>201910122137099_ApplyAnnotationsToMembersName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910122212233_AddNameToMembershipType.cs" />
+    <Compile Include="Migrations\201910122212233_AddNameToMembershipType.Designer.cs">
+      <DependentUpon>201910122212233_AddNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910122224485_SetNameOfMembershipTypes.cs" />
+    <Compile Include="Migrations\201910122224485_SetNameOfMembershipTypes.Designer.cs">
+      <DependentUpon>201910122224485_SetNameOfMembershipTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -289,6 +301,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910122128287_PopulateMembershipType.resx">
       <DependentUpon>201910122128287_PopulateMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910122137099_ApplyAnnotationsToMembersName.resx">
+      <DependentUpon>201910122137099_ApplyAnnotationsToMembersName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910122212233_AddNameToMembershipType.resx">
+      <DependentUpon>201910122212233_AddNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910122224485_SetNameOfMembershipTypes.resx">
+      <DependentUpon>201910122224485_SetNameOfMembershipTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

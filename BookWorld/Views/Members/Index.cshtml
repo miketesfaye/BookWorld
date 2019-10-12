@@ -1,8 +1,26 @@
-﻿
+﻿@model IEnumerable<BookWorld.Models.Member>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Members</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Member</th>
+            <th>Discount Rate</th>
+        </tr>
+        </thead>
+    <tbody>
+        @foreach (var member in Model)
+        {
+            <tr>
+                <td>@member.Name</td>
+                <td>@member.MembershipType.DiscountRate</td>
+            </tr>
+        }
+    </tbody>
+    </table>
 
