@@ -5,6 +5,9 @@
 }
 
 <h2>Members</h2>
+<p>
+    @Html.ActionLink("New Member", "New", "Members", null, new { @class = "btn btn-primary" })
+</p>
 
 <table class="table table-bordered table-hover">
     <thead>
@@ -17,7 +20,7 @@
         @foreach (var member in Model)
         {
             <tr>
-                <td>@member.Name</td>
+                <td>@Html.ActionLink(member.Name, "Edit", "Members", new {id = member.Id}, null)</td>
                 <td>@member.MembershipType.Name</td>
             </tr>
         }
