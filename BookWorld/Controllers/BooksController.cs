@@ -44,8 +44,20 @@ namespace BookWorld.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Book book)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new BookFormViewModel()
+                {
+                    Book = book,
+                    Genres = _context.Genres.ToList()
+                };
+
+                return View("BookForm", viewModel);
+            }
+
             if (book.Id == 0)
                 _context.Books.Add(book);
             else

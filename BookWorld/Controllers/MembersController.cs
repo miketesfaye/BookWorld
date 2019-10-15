@@ -46,6 +46,7 @@ namespace BookWorld.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Member member)
         {
             if (!ModelState.IsValid)
@@ -56,7 +57,7 @@ namespace BookWorld.Controllers
                     MembershipTypes = _context.MembershipTypes.ToList()
                 };
 
-                return RedirectToAction("Index", "Members");
+                return View("MemberForm", viewModel);
             }
 
             if (member.Id == 0)

@@ -24,6 +24,7 @@ namespace BookWorld.Models
         public DateTime DateAdded { get; set; }
 
         [Display(Name = "Number in Stock")]
+        [Range(1,20)]
         public byte NumberInStock { get; set; }
     }
 }
