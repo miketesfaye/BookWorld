@@ -17,6 +17,9 @@ namespace BookWorld.App_Start
 
             CreateMap<Book, BookDto>();
             CreateMap<BookDto, Book>();
+
+            CreateMap<MembershipType, MembershipTypeDto>();
+            CreateMap<Genre, GenreDto>();
         }
     }
 }

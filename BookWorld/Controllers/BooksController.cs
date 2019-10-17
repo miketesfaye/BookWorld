@@ -25,14 +25,14 @@ namespace BookWorld.Controllers
         }
 
         // GET: Books
-        public ActionResult Index()
+        public ViewResult Index()
         {
             //Include method eager loads MembershipType
             var books = _context.Books.Include(b => b.Genre).ToList();
 
             return View(books);
         }
-        public ActionResult New()
+        public ViewResult New()
         {
             var genres = _context.Genres.ToList();
             var viewModel = new BookFormViewModel
@@ -49,9 +49,8 @@ namespace BookWorld.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var viewModel = new BookFormViewModel()
+                var viewModel = new BookFormViewModel(book)
                 {
-                    Book = book,
                     Genres = _context.Genres.ToList()
                 };
 
@@ -59,7 +58,11 @@ namespace BookWorld.Controllers
             }
 
             if (book.Id == 0)
+            {
+                book.DateAdded = DateTime.Now;
                 _context.Books.Add(book);
+            }
+                
             else
             {
                 var bookInDb = _context.Books.Single(m => m.Id == book.Id);
@@ -81,10 +84,8 @@ namespace BookWorld.Controllers
             if (book == null)
                 return HttpNotFound();
 
-            var viewModel = new BookFormViewModel()
+            var viewModel = new BookFormViewModel(book)
             {
-                Book = book,
-                //Getting MembershipTypes from the database since Member already exists
                 Genres = _context.Genres.ToList()
             };
 

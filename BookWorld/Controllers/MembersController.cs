@@ -27,11 +27,7 @@ namespace BookWorld.Controllers
         // GET: Members
         public ActionResult Index()
         {
-            //Include method eager loads MembershipType
-            var members = _context.Members.Include(m => m.MembershipType).ToList();
-            
-
-            return View(members);
+            return View();
         }
 
         public ActionResult New()
@@ -39,6 +35,7 @@ namespace BookWorld.Controllers
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new MemberFormViewModel
             {
+                Member = new Member(),
                 MembershipTypes = membershipTypes
             };
 
