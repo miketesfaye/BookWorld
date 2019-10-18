@@ -25,7 +25,7 @@ namespace BookWorld
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-lumen.css",
+                      "~/Content/bootstrap-journal.css",
                       "~/Content/DataTables/css/dataTables.bootstrap.css",
                       "~/Content/site.css"));
         }
