@@ -1,7 +1,38 @@
 ﻿@{
     ViewBag.Title = "About";
+    ViewBag.Message = "Tech Stack:";
 }
 <h2>@ViewBag.Title.</h2>
+<p>
+    BookWorld simulates an internal website for a public library,
+    where the user is a library administrator who may edit the books and registered members in the database, as well as add to them.
+    The library administrator may also fill out a rental form on behalf of a registered member.
+</p>
+
 <h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<h4>Database</h4>
+<div class="row">
+    <div class="col-md-4 col-sm-4">
+        <ul class="list-group-item active">Azure</ul>
+        <ul class="list-group-item">Entity Framework</ul>
+    </div>
+</div>
+
+<h4>Backend</h4>
+<div class="row">
+    <div class="col-md-4 col-sm-4">
+        <ul class="list-group-item active">C#</ul>
+        <ul class="list-group-item">.NET MVC 5</ul>
+    </div>
+</div>
+
+<h4>Frontend</h4>
+<div class="row">
+    <div class="col-md-4 col-sm-4">
+        <ul class="list-group-item active">Javascript</ul>
+        <ul class="list-group-item">Bootstrap</ul>
+        <ul class="list-group-item">jQuery</ul>
+        <ul class="list-group-item">HTML</ul>
+    </div>
+</div>
