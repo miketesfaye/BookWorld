@@ -60,6 +60,7 @@ namespace BookWorld.Controllers
             if (book.Id == 0)
             {
                 book.DateAdded = DateTime.Now;
+                book.NumberAvailable = book.NumberInStock;
                 _context.Books.Add(book);
             }
                 
