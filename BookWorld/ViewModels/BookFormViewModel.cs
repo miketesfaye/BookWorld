@@ -28,7 +28,6 @@ namespace BookWorld.ViewModels
         [Required]
         [Range(1, 20)]
         public byte? NumberInStock { get; set; }
-
         public string Title
         {
             get

@@ -246,6 +246,18 @@
     <Compile Include="Migrations\201910191633039_AddNumberAvailableToBook.Designer.cs">
       <DependentUpon>201910191633039_AddNumberAvailableToBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910201402236_AddMoreGenres.cs" />
+    <Compile Include="Migrations\201910201402236_AddMoreGenres.Designer.cs">
+      <DependentUpon>201910201402236_AddMoreGenres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910201418025_UpdateNumberAvailableForBooks.cs" />
+    <Compile Include="Migrations\201910201418025_UpdateNumberAvailableForBooks.Designer.cs">
+      <DependentUpon>201910201418025_UpdateNumberAvailableForBooks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910201422377_UpdateMembershipTypeNames.cs" />
+    <Compile Include="Migrations\201910201422377_UpdateMembershipTypeNames.Designer.cs">
+      <DependentUpon>201910201422377_UpdateMembershipTypeNames.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -567,6 +579,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910191633039_AddNumberAvailableToBook.resx">
       <DependentUpon>201910191633039_AddNumberAvailableToBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910201402236_AddMoreGenres.resx">
+      <DependentUpon>201910201402236_AddMoreGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910201418025_UpdateNumberAvailableForBooks.resx">
+      <DependentUpon>201910201418025_UpdateNumberAvailableForBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910201422377_UpdateMembershipTypeNames.resx">
+      <DependentUpon>201910201422377_UpdateMembershipTypeNames.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -10,26 +10,28 @@
     <div class="form-group">
         <label>Member</label>
         <div class="tt-container">
-            <input id="member" type="text" value="" class="form-control" />
+            <input id="member" name="member" data-rule-validMember="true" required type="text" value="" class="form-control" />
         </div>
     </div>
-    
+
     <div class="form-group">
         <label>Book</label>
         <div class="tt-container">
-            <input id="book" type="text" value="" class="form-control" />
+            <input id="book" name="book" data-rule-atLeastOneBook="true" type="text" value="" class="form-control" />
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-md-4 col-sm-4">
             <ul id="books" class="list-group"></ul>
         </div>
     </div>
-    
+
     <button class="btn btn-primary">Submit</button>
 </form>
-@section scripts{
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
     <script>
         $(document).ready(function () {
 
@@ -41,19 +43,19 @@
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
                 prefetch: {
-                    url: '/Api/Members',
+                    url: '/api/Members',
                     cache: false
                 }
             });
 
             $('#member').typeahead({
                 minLength: 2,
-                highlight: true     
+                highlight: true
             }, {
                 name: 'members',
                 display: 'name',
                 source: members
-            }).on("typeahead:select", function(e, member) {
+            }).on("typeahead:select", function (e, member) {
                 vm.memberId = member.id;
             });
 
@@ -61,19 +63,19 @@
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
                 prefetch: {
-                    url: '/Api/Books',
+                    url: '/api/Books',
                     cache: false
                 }
             });
 
             $('#book').typeahead({
                 minLength: 2,
-                highlight: true     
+                highlight: true
             }, {
                 name: 'books',
                 display: 'name',
                 source: books
-            }).on("typeahead:select", function(e, book) {
+            }).on("typeahead:select", function (e, book) {
                 $("#books").append("<li class='list-group-item'>" + book.name + "</li>");
 
                 $("#book").typeahead("val", "");
@@ -81,21 +83,41 @@
                 vm.bookIds.push(book.id);
             });
 
+            $.validator.setDefaults({
+                ignore: ':hidden, .tt-hint'
+            });
 
-            $("#newRental").submit(function(e) {
-                e.preventDefault();
+            $.validator.addMethod("validMember", function () {
+                return vm.memberId && vm.memberId !== 0;
+            }, "Please select a valid member.");
 
-                $.ajax({
+            $.validator.addMethod("atLeastOneBook", function () {
+                return vm.bookIds.length > 0;
+            }, "Please select at least one book.");
+
+            var validator = $("#newRental").validate({
+                submitHandler: function () {
+                    $.ajax({
                         url: "/api/NewRentals",
                         method: "post",
                         data: vm
-                    })
-                    .done(function() {
-                        toastr.success("Rentals successfully recorded.");
-                    })
-                    .fail(function() {
-                        toastr.error("Something unexpected happened.");
-                    });
+                    }).done(function () {
+                            toastr.success("Rentals successfully recorded.");
+
+                            $("#member").typeahead("val", "");
+                            $("#book").typeahead("val", "");
+                            $("#book").empty();
+                            $("#books").empty();
+
+                            vm = { bookIds: [] };
+
+                            validator.resetForm();
+                        }).fail(function () {
+                            toastr.error("Something unexpected happened.");
+                        });
+
+                    return false;
+                }
             });
         });
     </script>

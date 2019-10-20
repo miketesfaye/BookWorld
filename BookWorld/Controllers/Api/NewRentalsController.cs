@@ -33,8 +33,6 @@ namespace BookWorld.Controllers.Api
                 if (book.NumberAvailable == 0)
                     return BadRequest("Book is not available.");
 
-                book.NumberAvailable--;
-
                 var rental = new Rental
                 {
                     Member = member,
@@ -43,6 +41,8 @@ namespace BookWorld.Controllers.Api
                 };
 
                 _context.Rentals.Add(rental);
+                
+                book.NumberAvailable--;
             }
 
             _context.SaveChanges();
