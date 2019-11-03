@@ -2,19 +2,27 @@
     ViewBag.Title = "Home Page";
 }
 
-    <div class="jumbotron">
-        <h1>BookWorld</h1>
-        <p class="lead">
-            Welcome Admin!
-        </p>
-        @Html.ActionLink("Learn more >>", "About", "Home", null, new { @class = "btn btn-primary" })
-    </div>
+    <style>
+        #brand-image2 {
+            height: 70px;
+        }
+    </style>
+
+<div class="jumbotron container-fluid" style="text-align: center; margin-top: 10%; margin-left: 15%; 
+margin-right: 15%; word-wrap:break-word;">
+    <img id="brand-image2" src="~/Content/Images/owl.png">
+    <p class="lead">
+        Welcome, Admin!
+    </p>
+    @* Html.ActionLink("Learn more >>", "About", "Home", null, new { @class = "btn btn-primary" }) *@
+</div>
+
 
 <div class="row">
     <div class="col-md-4">
         <h2>Books</h2>
         <p>
-            The library holds a collection of several kinds of books. Feel Free to add, or update to the database.
+            The library holds a collection of several kinds of books, from biographies to science fiction novels. Feel Free to add, or update to the database.
         </p>
         @Html.ActionLink("Books >>", "Index", "Books", null, new { @class = "btn btn-primary" })
     </div>
@@ -31,7 +39,6 @@
         <h2>Rentals</h2>
         <p>
             Registered members may rent one or more of the books in our collection. Click here to fill out a rental form on their behalf.
-            Make sure to check to books' availability!
         </p>
         @Html.ActionLink("Rentals >>", "New", "Rentals", null, new { @class = "btn btn-primary" })
     </div>

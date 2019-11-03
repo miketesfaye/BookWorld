@@ -72,6 +72,7 @@ namespace BookWorld.Controllers
                 bookInDb.ReleaseDate = book.ReleaseDate;
                 bookInDb.GenreId = book.GenreId;
                 bookInDb.NumberInStock = book.NumberInStock;
+                bookInDb.NumberAvailable = book.NumberInStock;
             }
             _context.SaveChanges();
 

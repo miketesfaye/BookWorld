@@ -27,7 +27,7 @@ namespace BookWorld
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-journal.css",
+                      "~/Content/bootstrap-flatly.css",
                       "~/Content/DataTables/css/dataTables.bootstrap.css",
                       "~/Content/typeahead.css",
                       "~/Content/toastr.css",
